@@ -1,0 +1,27 @@
+{
+  "name": "nginx-lambda",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:kaminchu/nginx-lambda.git",
+  "author": "kaminchu <kmchu.mail@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@tsconfig/node16": "^1.0.3",
+    "@types/express": "^4.17.13",
+    "@types/express-http-proxy": "^1.6.3",
+    "@types/morgan": "^1.9.3",
+    "@types/node": "^18.7.3",
+    "esbuild": "^0.15.2",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "@vendia/serverless-express": "^4.10.1",
+    "express": "^4.18.1",
+    "express-http-proxy": "^1.6.3",
+    "morgan": "^1.10.0"
+  },
+  "scripts": {
+    "build": "esbuild src/main.ts --bundle --outfile=dist/main.js --platform=node",
+    "zip": "zip -r func.zip dist/main.js nginx_conf/* dist/nginx/*"
+  }
+}
